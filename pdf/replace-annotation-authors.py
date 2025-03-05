@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # Script that can replace authors in PDF annotations, tested with Adobe Acrobat Reader, annotations might disappear for other PDF readers
 # Usage example: python3 replace-annotation-authors.py --author=Me --suffix=-edited *.pdf
-import PyPDF2
 import argparse
+import os.path
+import PyPDF2
 
 def replace_author_in_pdf(file_path, author, suffix):
     writer = PyPDF2.PdfWriter()
@@ -27,6 +28,16 @@ def replace_author_in_pdf(file_path, author, suffix):
     writer.append_pages_from_reader(reader)
 
     outputPdfFilePath = file_path.replace(".pdf", suffix + ".pdf")
+
+    # Check if output file would overwrite existing file
+    if (os.path.isfile(outputPdfFilePath) and
+        input("Output file '{}'already exists. Overwrite? (y/N)".format(outputPdfFilePath)) != "y"
+        ):
+        RED = "\033[91m"
+        print(f"{RED}Abort: Output file '{outputPdfFilePath}' already exits.")
+        exit()
+    
+    # Write edited PDF to disk
     with open(outputPdfFilePath, 'wb') as fp:
         writer.write(fp)
 

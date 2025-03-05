@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # Script that can merge multiple PDF files into one
 # Usage example: python3 merge-pdfs.py --output=merged.pdf *.pdf
-import PyPDF2
 import argparse
+import os.path
+import PyPDF2
 
 def main():
     parser=argparse.ArgumentParser()
@@ -21,6 +22,15 @@ def main():
         for page in range(len(pdf_reader.pages)):
             pdf_writer.add_page(pdf_reader.pages[page])
 
+    # Check if output file would overwrite existing file
+    if (os.path.isfile(args.output) and
+        input("Output file '{}' already exists. Overwrite? (y/N)".format(args.output)) != "y"
+        ):
+        RED = "\033[91m"
+        print(f"{RED}Abort: Output file '{args.output}' already exits.")
+        exit()
+
+    # Write merged PDF file to disk
     with open(args.output, 'wb') as out_file:
         pdf_writer.write(out_file)
 
