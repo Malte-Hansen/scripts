@@ -1,5 +1,5 @@
 # Script that can replace authors in PDF annotations, tested with Adobe Acrobat Reader, annotations might disappear for other PDF readers
-# Usage example: python3 replace-authors.py --author=Me --suffix=-edited *.pdf
+# Usage example: python3 replace-annotation-authors.py --author=Me --suffix=-edited *.pdf
 import PyPDF2
 import argparse
 
