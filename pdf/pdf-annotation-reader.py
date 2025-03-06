@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Script that prints content of PDF annotations to stdout
 from PyPDF2 import PdfReader
 import argparse
 

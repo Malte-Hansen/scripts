@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # Script that can merge multiple PDF files into one
-# Usage example: python3 merge-pdfs.py --output=merged.pdf *.pdf
 import argparse
 import os.path
 import PyPDF2
