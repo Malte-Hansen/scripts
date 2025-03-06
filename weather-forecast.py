@@ -24,7 +24,7 @@ async def print_weather_forecast(city):
 def main():
     parser=argparse.ArgumentParser()
 
-    parser.add_argument("--city", default="Kiel", help="Name of city for weather forecast")
+    parser.add_argument("-c", "--city", default="Kiel", help="Name of city for weather forecast")
 
     args=parser.parse_args()
     # see https://stackoverflow.com/questions/45600579/asyncio-event-loop-is-closed-when-getting-loop

@@ -44,8 +44,8 @@ def main():
     parser=argparse.ArgumentParser()
 
     parser.add_argument("paths", nargs='+', help="List of paths to PDF files, e.g. '*.pdf'")
-    parser.add_argument("--author", default="Anonymous", help="Author entries in annotations will be replaced with this string.")
-    parser.add_argument("--suffix", default="", help="Will be added as suffix to output file name to avoid replacement of original files.")
+    parser.add_argument("-a", "--author", default="Anonymous", help="Author entries in annotations will be replaced with this string.")
+    parser.add_argument("-s", "--suffix", default="", help="Will be added as suffix to output file name to avoid replacement of original files.")
 
     args=parser.parse_args()
 
