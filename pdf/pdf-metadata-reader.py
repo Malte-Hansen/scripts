@@ -29,7 +29,7 @@ def read_metadata_in_pdf(file_path):
             print("{}: {}".format(key.replace("/", ""), formatted_value))
 
 def main():
-    parser=argparse.ArgumentParser()
+    parser=argparse.ArgumentParser(description='Script that can output metadata for a list of given PDF files.')
 
     parser.add_argument("paths", nargs='+', help="List of paths to PDF files, e.g. '*.pdf'")
 

@@ -19,7 +19,7 @@ def read_annotations_in_pdf(file_path):
         pageNo += 1
 
 def main():
-    parser=argparse.ArgumentParser()
+    parser=argparse.ArgumentParser(description='Script that outputs annotations (author and content) for a given list of PDF files.')
 
     parser.add_argument("paths", nargs='+', help="List of paths to PDF files, e.g. '*.pdf'")
 

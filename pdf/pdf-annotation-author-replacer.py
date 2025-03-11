@@ -41,7 +41,7 @@ def replace_author_in_pdf(file_path, author, suffix):
         writer.write(fp)
 
 def main():
-    parser=argparse.ArgumentParser()
+    parser=argparse.ArgumentParser(description='Script that replaces the author in all annotations for a given list of PDF files.')
 
     parser.add_argument("paths", nargs='+', help="List of paths to PDF files, e.g. '*.pdf'")
     parser.add_argument("-a", "--author", default="Anonymous", help="Author entries in annotations will be replaced with this string.")
