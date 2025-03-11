@@ -2,11 +2,11 @@
 # Script that can replace authors in PDF annotations, tested with Adobe Acrobat Reader, annotations might disappear for other PDF readers
 import argparse
 import os.path
-import PyPDF2
+import pypdf
 
 def replace_author_in_pdf(file_path, author, suffix):
-    writer = PyPDF2.PdfWriter()
-    reader = PyPDF2.PdfReader(file_path)
+    writer = pypdf.PdfWriter()
+    reader = pypdf.PdfReader(file_path)
        
     print("\n---", file_path, "---") 
 
@@ -18,7 +18,7 @@ def replace_author_in_pdf(file_path, author, suffix):
                 if '/T' in obj:
                     found_annotations += 1
                     print("Replacing author: " + obj['/T'])
-                    obj[PyPDF2.generic.NameObject('/T')] = PyPDF2.generic.TextStringObject(author)
+                    obj[pypdf.generic.NameObject('/T')] = pypdf.generic.TextStringObject(author)
 
 
     print("Replaced author names with '" + author + "' in", found_annotations, " annotations.")

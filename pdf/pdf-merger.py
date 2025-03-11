@@ -2,7 +2,7 @@
 # Script that can merge multiple PDF files into one
 import argparse
 import os.path
-import PyPDF2
+import pypdf
 
 def main():
     parser=argparse.ArgumentParser(description='Script that can merge multiple given PDF files into one.')
@@ -12,10 +12,10 @@ def main():
 
     args=parser.parse_args()
 
-    pdf_writer = PyPDF2.PdfWriter()
+    pdf_writer = pypdf.PdfWriter()
 
     for pdf in args.paths:
-        pdf_reader = PyPDF2.PdfReader(pdf)
+        pdf_reader = pypdf.PdfReader(pdf)
         print("Add", pdf, "to merged file.")
 
         for page in range(len(pdf_reader.pages)):
