@@ -17,6 +17,10 @@ Install the dependencies given in requirements.txt:
 
 `pip install -r requirements.txt`
 
+This can be automated by calling:
+
+`chmod +x ./setup.sh && ./setup.sh`
+
 ### Interesting Tools
 
 - xdotool
