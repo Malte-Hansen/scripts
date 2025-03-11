@@ -1,2 +1,7 @@
 # scripts
-Collection of useful scripts
+
+Collection of useful scripts and commands.
+
+### Interesting Tools
+
+- xdotool

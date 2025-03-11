@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# Script that can replace authors in PDF annotations, tested with Adobe Acrobat Reader, annotations might disappear for other PDF readers
 import argparse
 import os.path
 import pypdf

@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# Script that prints metadata of given PDF files to stdout
 from pypdf import PdfReader
 
 import argparse

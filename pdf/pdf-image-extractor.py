@@ -5,9 +5,7 @@ import pypdf
 
 def main():
     parser=argparse.ArgumentParser(description='Script that extracts images from given PDF files.')
-
     parser.add_argument("paths", nargs='+', help="List of paths to PDF files, e.g. '*.pdf'")
-
     args=parser.parse_args()
 
     for pdf in args.paths:
@@ -23,6 +21,7 @@ def main():
             for image_file_object in page.images:
                 image_file_name = "page-{}-{}-{}".format(pageNo, count, image_file_object.name)
                 image_file_path = image_folder_path + "/" + image_file_name
+                
                 # Check if output file would overwrite existing file
                 if (os.path.isfile(image_file_path) and
                     input("Image file '{}' already exists. Overwrite? (y/N)".format(image_file_path)) != "y"
