@@ -2,6 +2,8 @@
 
 echo "Initializing scripts"
 
+mkdir -p bin
+
 # Loop through each subdirectory, mark scripts as executable and install dependencies
 for dir in $(find . -type d -not -path "*.git*" -not -path "*venv*"); do
     echo -e "\nProcessing directory: $dir"
@@ -9,7 +11,9 @@ for dir in $(find . -type d -not -path "*.git*" -not -path "*venv*"); do
     # Find and mark Python files with a shebang as executable
     for script in $(find "$dir" -maxdepth 1 -type f -name "*.py"); do
         chmod +x "$script";
-        echo "$script has been marked as executable."
+        filename="$(basename "$script" .py)"
+        ln -f "$script" "bin/$filename"
+        echo "Processed: $filename"
     done
 
     # Install dependencies
@@ -22,5 +26,5 @@ for dir in $(find . -type d -not -path "*.git*" -not -path "*venv*"); do
     fi
 done
 
-echo -e "\nAll Python scripts with a shebang have been marked as a executable."
+echo -e "\nAll Python scripts with a shebang have been marked as a executable and linked to bin folder."
 echo "All dependendies have been installed."

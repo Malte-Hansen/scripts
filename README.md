@@ -7,19 +7,15 @@ Collection of useful scripts and commands.
 - Python >= 3.9
 - pip
 
-### Python Scripts
+### Setup
 
-For Python scripts you should initialize a virtual environment:
+Initialize scripts with:
 
-`python -m venv venv`
+`chmod +x setup.sh && setup.sh`
 
-Install the dependencies given in requirements.txt:
+This marks them as executable and add links to the bin folder.
 
-`pip install -r requirements.txt`
-
-This can be automated by calling:
-
-`chmod +x ./setup.sh && ./setup.sh`
+Add the bin folder to your shell's PATH to use them anywhere.
 
 ### Interesting Tools
 
