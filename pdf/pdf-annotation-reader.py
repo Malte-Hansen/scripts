@@ -7,15 +7,15 @@ def read_annotations_in_pdf(file_path):
 
     reader = PdfReader(file_path)
 
-    pageNo = 1
+    page_no = 1
     for page in reader.pages:
         if "/Annots" in page:
             for annot in page["/Annots"]:
                 obj = annot.get_object()
                 if ("/T" in obj and "/Contents" in obj):
                     print("---")
-                    print("{}(page {}): {}".format(obj["/T"], str(pageNo), obj["/Contents"]))
-        pageNo += 1
+                    print("{}(page {}): {}".format(obj["/T"], str(page_no), obj["/Contents"]))
+        page_no += 1
 
 def main():
     parser=argparse.ArgumentParser(description='Script that outputs annotations (author and content) for a given list of PDF files.')

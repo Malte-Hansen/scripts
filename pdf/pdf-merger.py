@@ -7,7 +7,7 @@ def main():
     parser=argparse.ArgumentParser(description='Script that can merge multiple given PDF files into one.')
 
     parser.add_argument("paths", nargs='+', help="List of paths to PDF files, e.g. '*.pdf'")
-    parser.add_argument("--output", default="output.pdf", help="File name of merged PDF (output)")
+    parser.add_argument("--output", default="output.pdf", help="File name of merged PDF (default: output.pdf)")
 
     args=parser.parse_args()
 

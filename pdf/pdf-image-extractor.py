@@ -15,11 +15,11 @@ def main():
         
         pdf_reader = pypdf.PdfReader(pdf)
         print("\n--- {} ---".format(pdf))
-        pageNo = 1
+        page_no = 1
         for page in pdf_reader.pages:
             count = 0
             for image_file_object in page.images:
-                image_file_name = "page-{}-{}-{}".format(pageNo, count, image_file_object.name)
+                image_file_name = "page-{}-{}-{}".format(page_no, count, image_file_object.name)
                 image_file_path = image_folder_path + "/" + image_file_name
                 
                 # Check if output file would overwrite existing file
@@ -30,8 +30,8 @@ def main():
                 with open(image_file_path, "wb") as fp:
                     fp.write(image_file_object.data)
                     count += 1
-                    print("Page {}: Wrote image {} to disk.".format(pageNo, image_file_name))
-            pageNo += 1
+                    print("Page {}: Wrote image {} to disk.".format(page_no, image_file_name))
+            page_no += 1
 
 if __name__ == "__main__":
     main()

@@ -25,18 +25,18 @@ def replace_author_in_pdf(file_path, author, suffix):
     # Only content is added, meta data is ignored
     writer.append_pages_from_reader(reader)
 
-    outputPdfFilePath = file_path.replace(".pdf", suffix + ".pdf")
+    output_pdf_path = file_path.replace(".pdf", suffix + ".pdf")
 
     # Check if output file would overwrite existing file
-    if (os.path.isfile(outputPdfFilePath) and
-        input("Output file '{}'already exists. Overwrite? (y/N)".format(outputPdfFilePath)) != "y"
+    if (os.path.isfile(output_pdf_path) and
+        input("Output file '{}'already exists. Overwrite? (y/N)".format(output_pdf_path)) != "y"
         ):
         RED = "\033[91m"
-        print(f"{RED}Abort: Output file '{outputPdfFilePath}' already exits.")
+        print(f"{RED}Abort: Output file '{output_pdf_path}' already exits.")
         exit()
     
     # Write edited PDF to disk
-    with open(outputPdfFilePath, 'wb') as fp:
+    with open(output_pdf_path, 'wb') as fp:
         writer.write(fp)
 
 def main():
