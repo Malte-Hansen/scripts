@@ -12,7 +12,7 @@ for dir in $(find . -type d -not -path "*.git*" -not -path "*venv*"); do
     for script in $(find "$dir" -maxdepth 1 -type f -name "*.py"); do
         chmod +x "$script";
         filename="$(basename "$script" .py)"
-        ln -f "$script" "bin/$filename"
+        ln "$script" "bin/$filename"
         echo "Processed: $filename"
     done
 
@@ -27,4 +27,4 @@ for dir in $(find . -type d -not -path "*.git*" -not -path "*venv*"); do
 done
 
 echo -e "\nAll Python scripts with a shebang have been marked as a executable and linked to bin folder."
-echo "All dependendies have been installed."
+echo "All dependencies have been installed."

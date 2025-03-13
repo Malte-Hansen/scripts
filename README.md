@@ -4,6 +4,7 @@ Collection of useful scripts and commands.
 
 ### Requirements
 
+- Unix-based system (tested on MacOS only)
 - Python >= 3.9
 - pip
 
@@ -13,9 +14,9 @@ Initialize scripts with:
 
 `chmod +x setup.sh && setup.sh`
 
-This marks them as executable and add links to the bin folder.
+This will mark the scripts as executable and add links to an ignored bin folder.
 
-Add the bin folder to your shell's PATH to use them anywhere.
+Then, add the bin folder to your shell's PATH to use them anywhere.
 
 ### Interesting Tools
 
